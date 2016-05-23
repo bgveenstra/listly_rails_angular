@@ -2,19 +2,19 @@ class ItemsController < ApplicationController
   before_action :set_list
   before_action :set_item, only: [:show, :update, :destroy]
 
-  # GET /items
-  # GET /items.json
+  # GET /lists/1/items
+  # GET /lists/1/items.json
   def index
     @items = @list.items
   end
 
-  # GET /items/1
-  # GET /items/1.json
+  # GET /lists/1/items/1
+  # GET /lists/1/items/1.json
   def show
   end
 
-  # POST /items
-  # POST /items.json
+  # POST /lists/1/items
+  # POST /lists/1/items.json
   def create
     @item = Item.new(item_params)
 
@@ -25,8 +25,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /items/1
-  # PATCH/PUT /items/1.json
+  # PATCH/PUT /lists/1/items/1
+  # PATCH/PUT /lists/1/items/1.json
   def update
     if @item.update(item_params)
       render :show, status: :ok, location: list_item_path(@list, @item)
@@ -35,8 +35,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
+  # DELETE /lists/1/items/1
+  # DELETE /lists/1/items/1.json
   def destroy
     @item.destroy
     head :no_content
